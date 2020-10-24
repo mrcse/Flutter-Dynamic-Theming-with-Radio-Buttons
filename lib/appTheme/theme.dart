@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 class AppThemeNotifier extends ChangeNotifier {
   AppThemeNotifier();
-  bool _isDarkMode;
-  bool _isLightMode;
+  static bool _isDarkMode = false;
+  static bool _isLightMode = false;
 
   set darkMode(dark) {
-    this._isDarkMode = dark;
+    _isDarkMode = dark;
 
     notifyListeners();
   }
 
   set lightMode(light) {
-    this._isLightMode = light;
+    _isLightMode = light;
 
     notifyListeners();
   }

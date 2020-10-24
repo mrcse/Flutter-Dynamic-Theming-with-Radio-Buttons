@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:weight_app/appTheme/theme.dart';
 import 'package:weight_app/appUI/calculator.dart';
 
@@ -17,6 +17,7 @@ class _WeightCalState extends State<WeightCal> {
   static bool _isDarkMode = false;
   static bool _isLightMode = false;
   static bool _isDefault = true;
+
   var height = 160.0;
 
   _toggleModes(bool d, bool l, bool x) {
@@ -87,6 +88,7 @@ class _WeightCalState extends State<WeightCal> {
 
                   theme.darkMode = _isDarkMode;
                   theme.lightMode = _isLightMode;
+
                   Navigator.pop(context);
                 });
               },
@@ -102,6 +104,7 @@ class _WeightCalState extends State<WeightCal> {
               onTap: () {
                 setState(() {
                   _toggleModes(false, true, false);
+
                   theme.darkMode = _isDarkMode;
                   theme.lightMode = _isLightMode;
                   Navigator.pop(context);
