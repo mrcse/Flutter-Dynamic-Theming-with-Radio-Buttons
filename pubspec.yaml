@@ -31,6 +31,7 @@ dependencies:
   provider: any
   google_fonts: ^1.1.1
   adaptive_theme: ^1.0.0
+  fluttertoast: ^7.1.1
 
 dev_dependencies:
   flutter_test:

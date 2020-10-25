@@ -46,29 +46,29 @@ Pluto: 0.06
       switch (radioValue) {
         case 0:
           _finalResult = calculateWeight(weight, 0.06);
-          _planetName = "Your Weight on Pluto is ";
+          _planetName = "Your Weight on Pluto in kg is ";
           break;
         case 1:
           _finalResult = calculateWeight(weight, 0.38);
-          _planetName = "Your Weight on Mars is ";
+          _planetName = "Your Weight on Mars in kg is ";
 
           break;
         case 2:
           _finalResult = calculateWeight(weight, 0.91);
-          _planetName = "Your Weight on Vinus is ";
+          _planetName = "Your Weight on Vinus in kg is ";
           break;
         case 3:
           _finalResult = calculateWeight(weight, 2.34);
-          _planetName = "Your Weight on Jupiter is ";
+          _planetName = "Your Weight on Jupiter in kg is ";
           break;
         case 4:
           _finalResult = calculateWeight(weight, 0.92);
-          _planetName = "Your Weight on Uranus is ";
+          _planetName = "Your Weight on Uranus in kg is ";
 
           break;
         case 5:
           _finalResult = calculateWeight(weight, 1.19);
-          _planetName = "Your Weight on Neptune is ";
+          _planetName = "Your Weight on Neptune in kg is ";
 
           break;
         default:
