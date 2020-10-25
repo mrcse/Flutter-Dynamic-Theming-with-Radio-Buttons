@@ -1,24 +1,12 @@
+
 import 'package:flutter/material.dart';
 
-class AppThemeNotifier extends ChangeNotifier {
-  AppThemeNotifier();
-  static bool _isDarkMode = false;
-  static bool _isLightMode = false;
 
-  set darkMode(dark) {
-    _isDarkMode = dark;
 
-    notifyListeners();
-  }
-
-  set lightMode(light) {
-    _isLightMode = light;
-
-    notifyListeners();
-  }
-
-  get darkModeEnabled => _isDarkMode;
-  get lightModeEnabled => _isLightMode;
+class AppTheme{
+  static final AppTheme _instance = new AppTheme.internal();
+  factory AppTheme() => _instance;
+  AppTheme.internal();
 
   static ThemeData lightTheme() {
     return new ThemeData(
@@ -36,4 +24,5 @@ class AppThemeNotifier extends ChangeNotifier {
         brightness: Brightness.dark,
         primaryColor: Colors.white);
   }
+
 }

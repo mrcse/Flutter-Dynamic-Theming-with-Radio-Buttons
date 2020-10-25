@@ -1,9 +1,7 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
-import 'package:weight_app/appTheme/theme.dart';
 import 'package:weight_app/appUI/calculator.dart';
 
 class WeightCal extends StatefulWidget {
@@ -14,24 +12,14 @@ class WeightCal extends StatefulWidget {
 class _WeightCalState extends State<WeightCal> {
   TextEditingController _nameController = new TextEditingController();
   TextEditingController _weightController = new TextEditingController();
-  static bool _isDarkMode = false;
-  static bool _isLightMode = false;
-  static bool _isDefault = true;
-
   var height = 160.0;
 
-  _toggleModes(bool d, bool l, bool x) {
-    setState(() {
-      _isDarkMode = d;
-      _isLightMode = l;
-      _isDefault = x;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
-    var theme = Provider.of<AppThemeNotifier>(context);
-
+    List _list=new List();
+    _list=AdaptiveTheme.of(context).getModes;
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.teal,
@@ -73,7 +61,7 @@ class _WeightCalState extends State<WeightCal> {
             ),
             new ListTile(
               title: new Text("Default"),
-              leading: _isDefault
+              leading: _list[0]
                   ? Icon(
                       Icons.radio_button_on,
                       color: Colors.teal,
@@ -84,18 +72,16 @@ class _WeightCalState extends State<WeightCal> {
                     ),
               onTap: () {
                 setState(() {
-                  _toggleModes(false, false, true);
 
-                  theme.darkMode = _isDarkMode;
-                  theme.lightMode = _isLightMode;
-
+                  AdaptiveTheme.of(context).setSystem();
+                  debugPrint("${AdaptiveTheme.of(context)}");
                   Navigator.pop(context);
                 });
               },
             ),
             new ListTile(
               title: new Text("Light Mode"),
-              leading: _isLightMode
+              leading: _list[1]
                   ? Icon(Icons.radio_button_on, color: Colors.teal)
                   : Icon(
                       Icons.radio_button_off,
@@ -103,20 +89,16 @@ class _WeightCalState extends State<WeightCal> {
                     ),
               onTap: () {
                 setState(() {
-                  _toggleModes(false, true, false);
 
-                  theme.darkMode = _isDarkMode;
-                  theme.lightMode = _isLightMode;
+                  AdaptiveTheme.of(context).setLight();
+                  debugPrint("${AdaptiveTheme.of(context)}");
                   Navigator.pop(context);
-
-                  debugPrint(
-                      "Dark : ${theme.darkModeEnabled}\nLight : ${theme.lightModeEnabled}");
                 });
               },
             ),
             new ListTile(
               title: new Text("Dark Mode"),
-              leading: _isDarkMode
+              leading: _list[2]
                   ? Icon(
                       Icons.radio_button_on,
                       color: Colors.teal,
@@ -127,15 +109,11 @@ class _WeightCalState extends State<WeightCal> {
                     ),
               onTap: () {
                 setState(() {
-                  _toggleModes(true, false, false);
 
-                  theme.darkMode = _isDarkMode;
-                  theme.lightMode = _isLightMode;
-
+                  AdaptiveTheme.of(context).setDark();
                   Navigator.pop(context);
 
-                  debugPrint(
-                      "Dark : ${theme.darkModeEnabled}\nLight : ${theme.lightModeEnabled}");
+
                 });
               },
             )

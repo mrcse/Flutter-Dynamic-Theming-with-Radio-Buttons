@@ -30,7 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   provider: any
   google_fonts: ^1.1.1
-  shared_preferences: ^0.5.12+2
+  adaptive_theme: ^1.0.0
 
 dev_dependencies:
   flutter_test:
