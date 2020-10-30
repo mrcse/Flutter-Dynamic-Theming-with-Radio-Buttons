@@ -18,8 +18,11 @@ class _WeightCalState extends State<WeightCal> {
 
   @override
   Widget build(BuildContext context) {
-    List _list = new List();
-    _list = AdaptiveTheme.of(context).getModes;
+    List _list = [
+      AdaptiveTheme.of(context).mode.isSystem,
+      AdaptiveTheme.of(context).mode.isLight,
+      AdaptiveTheme.of(context).mode.isDark,
+    ];
     return WillPopScope(
       onWillPop: wilPop,
       child: new Scaffold(
